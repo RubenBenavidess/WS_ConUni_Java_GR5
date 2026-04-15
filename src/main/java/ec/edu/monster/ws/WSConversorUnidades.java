@@ -1,25 +1,64 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/WebServices/WebService.java to edit this template
- */
 package ec.edu.monster.ws;
 
-import javax.jws.WebService;
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
+import ec.edu.monster.servicios.ServicioConversor;
+import ec.edu.monster.utilidades.*;
+import ec.edu.monster.utilidades.enums.*;
+import ec.edu.monster.mapeadores.UnidadMapper;
 
-/**
- *
- * @author dario
- */
+import jakarta.jws.WebService;
+import jakarta.jws.WebMethod;
+import jakarta.jws.WebParam;
+import jakarta.jws.HandlerChain;
+
 @WebService(serviceName = "WSConversorUnidades")
+@HandlerChain(file = "manejador.xml")
 public class WSConversorUnidades {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    private final ServicioConversor<UnidadLongitud> servicioLongitud =
+            new ServicioConversor<>(new ConversorLongitud());
+
+    private final ServicioConversor<UnidadMasa> servicioMasa =
+            new ServicioConversor<>(new ConversorMasa());
+
+    private final ServicioConversor<UnidadTemperatura> servicioTemperatura =
+            new ServicioConversor<>(new ConversorTemperatura());
+
+   
+    @WebMethod(operationName = "convertirLongitud")
+    public double convertirLongitud(
+            @WebParam(name = "valor") double valor,
+            @WebParam(name = "unidadInicial") String unidadInicial,
+            @WebParam(name = "unidadFinal") String unidadFinal) {
+
+        UnidadLongitud origen = UnidadMapper.toLongitud(unidadInicial);
+        UnidadLongitud destino = UnidadMapper.toLongitud(unidadFinal);
+
+        return servicioLongitud.convertir(valor, origen, destino);
+    }
+    
+    @WebMethod(operationName = "convertirMasa")
+    public double convertirMasa(
+            @WebParam(name = "valor") double valor,
+            @WebParam(name = "unidadInicial") String unidadInicial,
+            @WebParam(name = "unidadFinal") String unidadFinal) {
+
+        UnidadMasa origen = UnidadMapper.toMasa(unidadInicial);
+        UnidadMasa destino = UnidadMapper.toMasa(unidadFinal);
+
+        return servicioMasa.convertir(valor, origen, destino);
+    }
+
+    @WebMethod(operationName = "convertirTemperatura")
+    public double convertirTemperatura(
+            @WebParam(name = "valor") double valor,
+            @WebParam(name = "unidadInicial") String unidadInicial,
+            @WebParam(name = "unidadFinal") String unidadFinal) {
+
+        UnidadTemperatura origen = UnidadMapper.toTemperatura(unidadInicial);
+        UnidadTemperatura destino = UnidadMapper.toTemperatura(unidadFinal);
+
+        return servicioTemperatura.convertir(valor, origen, destino);
     }
 }
+    
+

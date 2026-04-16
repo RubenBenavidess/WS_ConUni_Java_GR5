@@ -14,7 +14,13 @@ public class ConversorTemperaturaTest {
         "0, CELSIUS, FAHRENHEIT, 32.0",
         "32, FAHRENHEIT, CELSIUS, 0.0",
         "0, CELSIUS, KELVIN, 273.15",
-        "273.15, KELVIN, CELSIUS, 0.0"
+        "273.15, KELVIN, CELSIUS, 0.0",
+        "0, CELSIUS, RANKINE, 491.67",
+        "491.67, RANKINE, CELSIUS, 0.0",
+        "32, FAHRENHEIT, RANKINE, 491.67",
+        "491.67, RANKINE, FAHRENHEIT, 32.0",
+        "273.15, KELVIN, RANKINE, 491.67",
+        "491.67, RANKINE, KELVIN, 273.15"
     })
     void deberiaConvertirTemperatura(double valor,
                                      UnidadTemperatura origen,

@@ -4,6 +4,7 @@ import ec.edu.monster.servicios.ServicioConversor;
 import ec.edu.monster.utilidades.*;
 import ec.edu.monster.utilidades.enums.*;
 import ec.edu.monster.mapeadores.UnidadMapper;
+import ec.edu.monster.seguridad.AdministradorTokens;
 
 import jakarta.jws.WebService;
 import jakarta.jws.WebMethod;
@@ -23,6 +24,16 @@ public class WSConversorUnidades {
     private final ServicioConversor<UnidadTemperatura> servicioTemperatura =
             new ServicioConversor<>(new ConversorTemperatura());
 
+    @WebMethod(operationName = "login")
+    public String login(
+            @WebParam(name = "usuario") String usuario,
+            @WebParam(name = "contrasenia") String contrasenia) {
+        
+        if ("Monster".equals(usuario) && "Monster9".equals(contrasenia)) {
+            return AdministradorTokens.generarToken();
+        }
+        throw new RuntimeException("Credenciales incorrectas");
+    }
    
     @WebMethod(operationName = "convertirLongitud")
     public double convertirLongitud(
@@ -60,5 +71,3 @@ public class WSConversorUnidades {
         return servicioTemperatura.convertir(valor, origen, destino);
     }
 }
-    
-

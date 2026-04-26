@@ -1,10 +1,10 @@
-package ec.edu.monster.utilidades;
+package ec.edu.monster.model.utilidades;
 
-import ec.edu.monster.utilidades.enums.UnidadTemperatura;
-import static ec.edu.monster.utilidades.enums.UnidadTemperatura.CELSIUS;
-import static ec.edu.monster.utilidades.enums.UnidadTemperatura.FAHRENHEIT;
-import static ec.edu.monster.utilidades.enums.UnidadTemperatura.KELVIN;
-import static ec.edu.monster.utilidades.enums.UnidadTemperatura.RANKINE;
+import ec.edu.monster.model.utilidades.enums.UnidadTemperatura;
+import static ec.edu.monster.model.utilidades.enums.UnidadTemperatura.CELSIUS;
+import static ec.edu.monster.model.utilidades.enums.UnidadTemperatura.FAHRENHEIT;
+import static ec.edu.monster.model.utilidades.enums.UnidadTemperatura.KELVIN;
+import static ec.edu.monster.model.utilidades.enums.UnidadTemperatura.RANKINE;
 
 public class ConversorTemperatura implements IConversor<UnidadTemperatura> {
 

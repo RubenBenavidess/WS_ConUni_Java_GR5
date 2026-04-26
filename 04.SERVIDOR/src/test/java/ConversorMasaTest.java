@@ -1,5 +1,5 @@
-import ec.edu.monster.utilidades.enums.UnidadMasa;
-import ec.edu.monster.utilidades.ConversorMasa;
+import ec.edu.monster.model.utilidades.enums.UnidadMasa;
+import ec.edu.monster.model.utilidades.ConversorMasa;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 

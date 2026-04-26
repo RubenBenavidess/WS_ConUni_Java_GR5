@@ -1,6 +1,6 @@
-package ec.edu.monster.servicios;
+package ec.edu.monster.model.servicios;
 
-import ec.edu.monster.utilidades.IConversor;
+import ec.edu.monster.model.utilidades.IConversor;
 
 public class ServicioConversor<T> {
 

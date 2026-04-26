@@ -1,4 +1,4 @@
-package ec.edu.monster.ws.manejadores;
+package ec.edu.monster.controller.manejadoresws;
 
 import ec.edu.monster.seguridad.AdministradorTokens;
 import jakarta.xml.ws.handler.soap.SOAPHandler;

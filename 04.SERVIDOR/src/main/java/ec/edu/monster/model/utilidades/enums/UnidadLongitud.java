@@ -1,4 +1,4 @@
-package ec.edu.monster.utilidades.enums;
+package ec.edu.monster.model.utilidades.enums;
 
 public enum UnidadLongitud {
     MILIMETRO,

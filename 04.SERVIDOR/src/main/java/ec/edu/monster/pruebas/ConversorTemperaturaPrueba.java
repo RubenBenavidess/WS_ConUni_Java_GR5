@@ -1,7 +1,7 @@
 package ec.edu.monster.pruebas;
 
-import ec.edu.monster.utilidades.ConversorTemperatura;
-import ec.edu.monster.utilidades.enums.UnidadTemperatura;
+import ec.edu.monster.model.utilidades.ConversorTemperatura;
+import ec.edu.monster.model.utilidades.enums.UnidadTemperatura;
 
 import java.util.Scanner;
 

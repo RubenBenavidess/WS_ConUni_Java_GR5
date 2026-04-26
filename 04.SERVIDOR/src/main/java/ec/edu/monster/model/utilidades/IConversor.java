@@ -1,4 +1,4 @@
-package ec.edu.monster.utilidades;
+package ec.edu.monster.model.utilidades;
 
 public interface IConversor<T> {
 

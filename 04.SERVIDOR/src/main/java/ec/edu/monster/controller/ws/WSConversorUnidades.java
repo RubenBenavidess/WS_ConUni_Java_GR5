@@ -1,9 +1,14 @@
-package ec.edu.monster.ws;
+package ec.edu.monster.controller.ws;
 
-import ec.edu.monster.servicios.ServicioConversor;
-import ec.edu.monster.utilidades.*;
-import ec.edu.monster.utilidades.enums.*;
-import ec.edu.monster.mapeadores.UnidadMapper;
+import ec.edu.monster.model.utilidades.enums.UnidadTemperatura;
+import ec.edu.monster.model.utilidades.enums.UnidadMasa;
+import ec.edu.monster.model.utilidades.enums.UnidadLongitud;
+import ec.edu.monster.model.utilidades.ConversorTemperatura;
+import ec.edu.monster.model.utilidades.ConversorMasa;
+import ec.edu.monster.model.utilidades.ConversorLongitud;
+import ec.edu.monster.model.servicios.ServicioConversor;
+import ec.edu.monster.model.utilidades.mapeadores.UnidadMapper;
+import ec.edu.monster.seguridad.AdministradorCredenciales;
 import ec.edu.monster.seguridad.AdministradorTokens;
 
 import jakarta.jws.WebService;
@@ -29,10 +34,18 @@ public class WSConversorUnidades {
             @WebParam(name = "usuario") String usuario,
             @WebParam(name = "contrasenia") String contrasenia) {
         
-        if ("Monster".equals(usuario) && "Monster9".equals(contrasenia)) {
+        if (AdministradorCredenciales.validarCredenciales(usuario, contrasenia)) {
             return AdministradorTokens.generarToken();
         }
         throw new RuntimeException("Credenciales incorrectas");
+    }
+
+    @WebMethod(operationName = "cambiarContrasenia")
+    public String cambiarContrasenia(
+            @WebParam(name = "contraseniaActual") String contraseniaActual,
+            @WebParam(name = "contraseniaNueva") String contraseniaNueva) {
+        AdministradorCredenciales.cambiarContrasenia(contraseniaActual, contraseniaNueva);
+        return "Contrasenia actualizada correctamente";
     }
    
     @WebMethod(operationName = "convertirLongitud")

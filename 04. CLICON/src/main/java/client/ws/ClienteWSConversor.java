@@ -11,7 +11,7 @@ import javax.xml.namespace.QName;
 
 public class ClienteWSConversor {
 
-    private static final String ESPACIO_NOMBRES = "http://ws.monster.edu.ec/";
+    private static final String ESPACIO_NOMBRES = "http://ws.controladores.monster.edu.ec/";
     private static final String PROPIEDAD_BASE_WS = "ws.base.url";
     private static final String VARIABLE_BASE_WS = "WS_BASE_URL";
 

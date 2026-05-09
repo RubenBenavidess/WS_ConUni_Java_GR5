@@ -44,7 +44,7 @@ public class ManejadorTokenSOAP implements SOAPHandler<SOAPMessageContext> {
                 encabezado = sobre.addHeader();
             }
 
-            QName nombreToken = new QName("http://ws.monster.edu.ec/", "token", "ws");
+            QName nombreToken = new QName("http://ws.controladores.monster.edu.ec/", "token", "ws");
             encabezado.addHeaderElement(nombreToken).addTextNode(token);
             mensaje.saveChanges();
             return true;

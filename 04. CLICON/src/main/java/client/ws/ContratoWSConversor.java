@@ -6,7 +6,7 @@ import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 
-@WebService(name = "WSConversorUnidades", targetNamespace = "http://ws.monster.edu.ec/")
+@WebService(name = "WSConversorUnidades", targetNamespace = "http://ws.controladores.monster.edu.ec/")
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public interface ContratoWSConversor {
 

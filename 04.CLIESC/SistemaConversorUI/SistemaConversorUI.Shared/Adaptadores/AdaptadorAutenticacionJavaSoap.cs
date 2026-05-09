@@ -19,7 +19,7 @@ public class AdaptadorAutenticacionJavaSoap : IAdaptadorAutenticacion
     {
         // 1. Construir el sobre SOAP (Envelope)
         // Nota: El namespace "http://ws.monster.edu.ec/" es el que Java genera por defecto 
-        string soapXml = $@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://ws.controller.monster.edu.ec/"">
+        string soapXml = $@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://ws.controladores.monster.edu.ec/"">
                                <soapenv:Header/>
                                <soapenv:Body>
                                   <ws:login>
@@ -54,7 +54,7 @@ public class AdaptadorAutenticacionJavaSoap : IAdaptadorAutenticacion
     public async Task<string> CambiarContraseniaAsync(string contraseniaActual, string contraseniaNueva, string token)
     {
         // Construimos el XML respetando los @WebParam de tu Java
-        string soapXml = $@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://ws.controller.monster.edu.ec/"">
+        string soapXml = $@"<soapenv:Envelope xmlns:soapenv=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:ws=""http://ws.controladores.monster.edu.ec/"">
                                <soapenv:Header/>
                                <soapenv:Body>
                                   <ws:cambiarContrasenia>

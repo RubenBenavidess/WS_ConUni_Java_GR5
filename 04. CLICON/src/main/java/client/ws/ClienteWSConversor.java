@@ -19,9 +19,9 @@ public class ClienteWSConversor {
     private static final QName QNOMBRE_PUERTO = new QName(ESPACIO_NOMBRES, "WSConversorUnidadesPort");
 
     private static final List<String> BASES_URL_POR_DEFECTO = List.of(
-            "http://localhost:8080/04.SERVIDOR",
-            "http://localhost:8080/WS_ConUni_Java_GR5",
-            "http://localhost:8080/WS_ConUni_Java_GR5-1.0-SNAPSHOT"
+            "http://localhost:8081/04.SERVIDOR",
+            "http://localhost:8081/WS_ConUni_Java_GR5",
+            "http://localhost:8081/WS_ConUni_Java_GR5-1.0-SNAPSHOT"
     );
 
     private final ContratoWSConversor puerto;
@@ -116,6 +116,10 @@ public class ClienteWSConversor {
     public String login(String usuario, String contrasenia) {
         this.tokenSesion = puerto.login(usuario, contrasenia);
         return this.tokenSesion;
+    }
+    
+    public String cambiarContrasenia(String contraseniaActual, String contraseniaNueva) { 
+        return puerto.cambiarContrasenia(contraseniaActual, contraseniaNueva);
     }
 
     public double convertirLongitud(double valor, String unidadInicial, String unidadFinal) {

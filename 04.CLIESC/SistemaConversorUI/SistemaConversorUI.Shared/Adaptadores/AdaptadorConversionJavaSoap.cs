@@ -57,7 +57,7 @@ public class AdaptadorConversionJavaSoap : IAdaptadorConversion
         }
 
         // 3. Extraer el resultado double
-        var doc = XDocument.Parse(responseXml);
+        var doc =  XDocument.Parse(responseXml);
         var resultElement = doc.Descendants().FirstOrDefault(x => x.Name.LocalName == "return");
 
         if (resultElement != null && double.TryParse(resultElement.Value, NumberStyles.Any, CultureInfo.InvariantCulture, out double resultado))

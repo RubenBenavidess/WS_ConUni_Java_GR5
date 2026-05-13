@@ -32,6 +32,10 @@ public class ConversionControlador {
                     modelo.getUnidadFinal());
         };
     }
+    
+     public String cambiarContrasenia(String actual, String nueva) { 
+        return clienteWs.cambiarContrasenia(actual, nueva);
+    }
 
     private void validarSolicitud(ConversionModelo modelo) {
         if (modelo == null) {

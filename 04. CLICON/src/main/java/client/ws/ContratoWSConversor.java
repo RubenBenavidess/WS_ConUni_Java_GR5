@@ -36,4 +36,10 @@ public interface ContratoWSConversor {
             @WebParam(name = "valor") double valor,
             @WebParam(name = "unidadInicial") String unidadInicial,
             @WebParam(name = "unidadFinal") String unidadFinal);
+    
+    @WebMethod(operationName = "cambiarContrasenia")
+    @WebResult(name = "return")
+    String cambiarContrasenia(
+            @WebParam(name = "contraseniaActual") String contraseniaActual,
+            @WebParam(name = "contraseniaNueva") String contraseniaNueva); 
 }
